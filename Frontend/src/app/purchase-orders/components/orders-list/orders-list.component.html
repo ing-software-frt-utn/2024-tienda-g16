@@ -1,0 +1,67 @@
+<h4 class="fw-bold py-3 mb-4">
+    <span class="text-muted fw-light">Ventas /</span> Listado de Ventas
+</h4>
+
+
+<ul class="nav nav-pills flex-column flex-md-row mb-3">
+    <li class="nav-item">
+        <a class="nav-link active" href="javascript:void(0);"><i class="bx bx-user me-1"></i> Listado de Ventas</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="../add"><i class="bx bx-plus me-1"></i> Agregar Venta</a>
+    </li>
+</ul>
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive text-nowrap m-3"  *ngIf="ventas.length>0">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">Info</th>
+                        <th>Codigo</th>
+                        <th>Tipo de Comprobante</th>
+                        <th>Vendedor</th>
+                        <th>Cliente</th>
+                        <th>Tipo de Pago</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody class="table-border-bottom-0" id="grillaProv2">
+                    <tr *ngFor="let v of ventas">
+                        <td class="text-center"><i class='btn btn-icon  bx bx-info-circle text-primary'
+                                routerLink="../detail/{{v.id}}"></i></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
+                            <strong>{{v.id}}</strong>
+                        </td>
+                        <td>{{v.tipoDeComprobante?.descripcion}}</td>
+                        <td>{{v.vendedor?.nombre+' '+v.vendedor?.apellido}}</td>
+                        <td>{{v.cliente?.nombre+' '+v.cliente?.apellido}}</td>
+                        <td>{{v.pago?.descripcion}}</td>
+                        <td>{{v.total | currency}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="!(ventas.length>0)">
+            <div class="alert alert-primary d-flex align-items-center justify-content-between mt-2" role="alert">
+                <div class="d-flex">
+                    <i class='bx bx-info-circle me-2'></i>
+                    <div>
+                        No hay Ventas para mostrar, ¿Deseas agregar una?
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary d-flex align-items-center" routerLink="../add">
+                        <i class='bx bx-plus-circle me-1'></i>
+                        <div>
+                            Agregar Venta
+                        </div>
+                    </button>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+
+<ng-template #infoTpl> {{infoString}} </ng-template>
+<app-toast-info aria-live="polite" aria-atomic="true"></app-toast-info>

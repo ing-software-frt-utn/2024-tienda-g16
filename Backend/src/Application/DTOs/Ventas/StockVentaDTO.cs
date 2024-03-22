@@ -1,0 +1,29 @@
+﻿using Application.DTOs.Common;
+using Domain.Aggregates.StockAggregate;
+
+namespace Application.DTOs.Ventas;
+
+public sealed class StockVentaDTO
+{
+    public Guid Id { get; private set; }
+    public int CantidadDisponible { get; private set; }
+    public int CantidadReservada { get; private set; }
+    public TalleDTO? Talle { get; private set; }
+    public ColorDTO? Color { get; private set; }
+    public ArticuloVentaDTO? Articulo { get; private set; }
+
+    public static StockVentaDTO? ToDTO(Stock? stock)
+    {
+        if (stock == null) return null;
+
+        return new StockVentaDTO
+        {
+            Id = stock.Id,
+            CantidadDisponible = stock.CantidadDisponible,
+            CantidadReservada = stock.CantidadReservada,
+            Talle = TalleDTO.ToDTO(stock.Talle),
+            Color = ColorDTO.ToDTO(stock.Color),
+            Articulo = ArticuloVentaDTO.ToDTO(stock.Articulo),
+        };
+    }
+}

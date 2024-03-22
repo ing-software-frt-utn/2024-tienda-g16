@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col-lg-12 mb-4 order-0">
+        <div class="card">
+            <div class="d-flex align-items-end row">
+                <div class="col-sm-7">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Bienvenido {{sesion.vendedor.nombre +' '+sesion.vendedor.apellido}}! 🎉</h5>
+                        <p class="mb-2"> 
+                            Espero que tengas una excelente semana!.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-5 text-center text-sm-left">
+                    <div class="card-body pb-0 px-0 px-md-4">
+                        <img src="../assets/img/illustrations/man-with-laptop-light.png" height="140"
+                            alt="View Badge User" data-app-dark-img="illustrations/man-with-laptop-dark.png"
+                            data-app-light-img="illustrations/man-with-laptop-light.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!-- Artículos -->
+    <div class="col-md-6 col-lg-6 col-xl-6 order-0 mb-4">
+        <div class="card">
+            <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                <div class="card-title mb-0">
+                    <h5 class="m-0 me-2">Artículos</h5>
+
+                </div>
+                <div class="dropdown">
+                    <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
+                        <a class="dropdown-item" [routerLink]="['/products/list']">Ver Listado de Artículos</a>
+                        <a class="dropdown-item" [routerLink]="['/products/add']">Agregar Artículo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex flex-column justify-content-between mb-3">
+                    <div class="d-flex align-items-center gap-1">
+                        <h2 class="mb-2">{{totalProducts}}</h2>
+                    </div>
+                    <div>
+                        <p class="text-muted">Total de Artículos</p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Artículos -->
+
+    <!-- Ventas -->
+    <div class="col-md-6 col-lg-6 col-xl-6 order-0 mb-4">
+        <div class="card">
+            <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                <div class="card-title mb-0">
+                    <h5 class="m-0 me-2">Ventas</h5>
+
+                </div>
+                <div class="dropdown">
+                    <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
+                        <a class="dropdown-item" [routerLink]="['/orders/list']">Ver Listado de Ventas</a>
+                        <a class="dropdown-item" [routerLink]="['/orders/add']">Agregar Venta</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="d-flex flex-column justify-content-between mb-3">
+                    <div class="d-flex align-items-center gap-1">
+                        <h2 class="mb-2">{{totalOrders}}</h2>
+                    </div>
+                    <div>
+                        <p class="text-muted">Total de Ventas</p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ Ventas -->
+</div>
